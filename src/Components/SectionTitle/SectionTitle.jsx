@@ -5,7 +5,7 @@ const SectionTitle = ({ heading, subHeading }) => {
     return (
         <div className='md:w-4/12 mx-auto text-center my-7'>
             <p className='text-[#D99904] italic text-xl py-3'>--- {subHeading} ---</p>
-            <h1 className='text-[#151515] text-4xl border-y-2 py-3'>{heading}</h1>
+            <h1 className=' text-4xl border-y-2 py-3'>{heading}</h1>
         </div>
     );
 };
