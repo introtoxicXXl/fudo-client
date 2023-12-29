@@ -4,6 +4,7 @@ import Category from "../Components/Category/Category";
 import Menu from "../Components/Menu/Menu";
 import Recommended from "../Components/Recomended/Recomended";
 import ShouldTry from "../Components/ShouldTry/ShouldTry";
+import Testimonial from "../Components/Testimonial/Testimonial";
 
 const Home = () => {
   
@@ -15,6 +16,7 @@ const Home = () => {
       <Menu/>
       <Recommended/>
       <ShouldTry/>
+      <Testimonial/>
     </div>
   );
 };
