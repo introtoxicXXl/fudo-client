@@ -14,7 +14,7 @@ import SectionTitle from '../SectionTitle/SectionTitle';
 const Category = () => {
 
   return (
-    <section className='container mx-auto'>
+    <section className='container mx-auto my-10'>
       <SectionTitle 
         heading='ORDER ONLINE'
         subHeading='From 11:00am to 10:00pm'
