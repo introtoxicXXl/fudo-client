@@ -1,9 +1,5 @@
-
-.custom-carousel .carousel{
+.custom-carousel .carousel {
     display: flex;
     justify-content: center;
-  }
-  
-  .custom-carousel .thumbs-wrapper .thumbs {
-    text-align: center;
-  }
+}
+

@@ -6,8 +6,8 @@ const Navbar = () => {
     return (
         <div className="">
             <nav className="bg-black text-white w-full bg-opacity-70 dark:bg-gray-900 fixed z-10">
-                <div className="container mx-auto flex flex-wrap items-center justify-between mx-auto p-4">
-                    <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                <div className="container flex flex-wrap items-center justify-between mx-auto p-4">
+                    <a href="" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
                     </a>
