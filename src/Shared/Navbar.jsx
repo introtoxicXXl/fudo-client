@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
 
 const Navbar = () => {
@@ -7,10 +7,9 @@ const Navbar = () => {
         <div className="">
             <nav className="bg-black text-white w-full bg-opacity-70 dark:bg-gray-900 fixed z-10">
                 <div className="container flex flex-wrap items-center justify-between mx-auto p-4">
-                    <a href="" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-                    </a>
+                    <Link to='/' className="flex items-center space-x-3 rtl:space-x-reverse">
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white text-[#EEFF25]">FuDo</span>
+                    </Link>
                     <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                         <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                             <span className="sr-only">Open user menu</span>
@@ -53,7 +52,7 @@ const Navbar = () => {
                                 <NavLink to='/about' className="block py-2 px-1 rounded text-white hover:text-[#EEFF25]">About</NavLink>
                             </li>
                             <li>
-                                <NavLink className="block py-2 px-1 rounded text-white hover:text-[#EEFF25]">Services</NavLink>
+                                <NavLink to='/ourMenu' className="block py-2 px-1 rounded text-white hover:text-[#EEFF25]">Our Menu</NavLink>
                             </li>
                             <li>
                                 <NavLink className="block py-2 px-1 rounded text-white hover:text-[#EEFF25]">Pricing</NavLink>

@@ -1,18 +1,10 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../SectionTitle/SectionTitle";
-import axios from "axios";
 import MenuItems from "../MenuItems/MenuItems";
+import UseMenu from "../../Hooks/UseMenu";
 
 const Menu = () => {
-    const [menus, setMenus] = useState([])
-
-    useEffect(() => {
-        axios.get('menu.json')
-            .then(res => {
-                const popularItems = res.data.filter(item => item.category === 'popular')
-                setMenus(popularItems)
-            })
-    }, [])
+    const [menu] = UseMenu();
+    const popular = menu.filter(item => item.category === 'popular');
 
     return (
         <section className="container mx-auto my-10">
@@ -21,14 +13,14 @@ const Menu = () => {
                 subHeading="Check It Out"
             />
 
-        <div className="grid grid-cols-2 gap-5">
-            {
-                menus.map(menu=><MenuItems
-                    key={menu._id}
-                    item={menu}
-                />)
-            }
-        </div>
+            <div className="grid grid-cols-2 gap-5">
+                {
+                    popular.map(menu => <MenuItems
+                        key={menu._id}
+                        item={menu}
+                    />)
+                }
+            </div>
 
         </section>
     );
