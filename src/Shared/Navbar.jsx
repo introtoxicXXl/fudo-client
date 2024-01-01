@@ -55,7 +55,7 @@ const Navbar = () => {
                                 <NavLink to='/ourMenu' className="block py-2 px-1 rounded text-white hover:text-[#EEFF25]">Our Menu</NavLink>
                             </li>
                             <li>
-                                <NavLink className="block py-2 px-1 rounded text-white hover:text-[#EEFF25]">Pricing</NavLink>
+                                <NavLink to='/ourShop/salad' className="block py-2 px-1 rounded text-white hover:text-[#EEFF25]">Our Shop</NavLink>
                             </li>
                             <li>
                                 <NavLink className="block py-2 px-1 rounded text-white hover:text-[#EEFF25]">Contact</NavLink>

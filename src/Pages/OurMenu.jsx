@@ -3,11 +3,13 @@ import CategoryTitle from "../Components/CategoryTitle/CategoryTitle";
 import UseMenu from "../Hooks/UseMenu";
 import menuImg from '../assets/menu/banner3.jpg';
 import pizzaImg from '../assets/menu/pizza-bg.jpg';
-import desertImg from '../assets/menu/dessert-bg.jpeg';
+import dessertImg from '../assets/menu/dessert-bg.jpeg';
 import saladImg from '../assets/menu/salad-bg.jpg';
 import soupImg from '../assets/menu/soup-bg.jpg';
+import drinksImg from '../assets/menu/soup-bg.jpg';
 import MenuItems from "../Components/MenuItems/MenuItems";
 import SectionTitle from "../Components/SectionTitle/SectionTitle";
+import MenuCategory from "../Components/MenuCategory/MenuCategory";
 
 const OurMenu = () => {
     const [menu] = UseMenu();
@@ -16,6 +18,7 @@ const OurMenu = () => {
     const dessert = menu.filter(item => item.category === 'dessert');
     const soup = menu.filter(item => item.category === 'soup');
     const salad = menu.filter(item => item.category === 'salad');
+    const drinks = menu.filter(item => item.category === 'drinks');
 
 
     return (
@@ -42,54 +45,31 @@ const OurMenu = () => {
                     }
                 </div>
             </div>
-            <CategoryTitle
-                img={pizzaImg}
-                title="pizza"
-            />
-            <div className="container mx-auto grid grid-cols-2 gap-5 my-20">
-                {
-                    pizza.map(menu => <MenuItems
-                        key={menu._id}
-                        item={menu}
-                    />)
-                }
-            </div>
-            <CategoryTitle
-                img={desertImg}
-                title="dessert"
-            />
-            <div className="container mx-auto grid grid-cols-2 gap-5 my-20">
-                {
-                    dessert.map(menu => <MenuItems
-                        key={menu._id}
-                        item={menu}
-                    />)
-                }
-            </div>
-            <CategoryTitle
-                img={soupImg}
-                title="Soup"
-            />
-            <div className="container mx-auto grid grid-cols-2 gap-5 my-20">
-                {
-                    soup.map(menu => <MenuItems
-                        key={menu._id}
-                        item={menu}
-                    />)
-                }
-            </div>
-            <CategoryTitle
+            <MenuCategory
                 img={saladImg}
-                title="salad"
+                title='salad'
+                items={salad}
             />
-            <div className="container mx-auto grid grid-cols-2 gap-5 my-20">
-                {
-                    salad.map(menu => <MenuItems
-                        key={menu._id}
-                        item={menu}
-                    />)
-                }
-            </div>
+            <MenuCategory
+                img={pizzaImg}
+                title='pizza'
+                items={pizza}
+            />
+            <MenuCategory
+                img={soupImg}
+                title='soup'
+                items={soup}
+            />
+            <MenuCategory
+                img={dessertImg}
+                title='dessert'
+                items={dessert}
+            />
+            <MenuCategory
+                img={drinksImg}
+                title='drinks'
+                items={drinks}
+            />
         </div>
     );
 };

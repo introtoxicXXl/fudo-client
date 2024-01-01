@@ -1,7 +1,7 @@
 import { Parallax } from 'react-parallax';
 import { PropTypes } from 'prop-types';
 
-const CategoryTitle = ({ img, title }) => {
+const CategoryTitle = ({ img, title, subTitle }) => {
 
     return (
         <div>
@@ -16,6 +16,9 @@ const CategoryTitle = ({ img, title }) => {
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md text-center uppercase">
                             <h1 className="mb-5 text-5xl font-bold">{title}</h1>
+                            {
+                                subTitle && <p className='font-semibold'>{subTitle}</p>
+                            }
                         </div>
                     </div>
                 </div>
@@ -26,6 +29,7 @@ const CategoryTitle = ({ img, title }) => {
 
 CategoryTitle.propTypes = {
     img: PropTypes.img,
-    title: PropTypes.string
+    title: PropTypes.string,
+    subTitle: PropTypes.string
 }
 export default CategoryTitle;
