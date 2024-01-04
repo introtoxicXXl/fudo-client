@@ -7,6 +7,7 @@ import UseMenu from '../Hooks/UseMenu';
 import OrderTab from '../Components/OrderTab/OrderTab';
 import { useParams } from 'react-router-dom';
 import './OurShop.css';
+import { Helmet } from 'react-helmet';
 
 
 const OurShop = () => {
@@ -23,6 +24,9 @@ const OurShop = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Fudo | Our Shop</title>
+            </Helmet>
             <CategoryTitle
                 img={shopImg}
                 title='Our Shop'
