@@ -5,12 +5,16 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import './Login.css';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 
 
 const Login = () => {
     const { login } = useAuth();
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const form = location.state?.from?.pathname || '/';
 
 
     useEffect(() => {
@@ -32,8 +36,11 @@ const Login = () => {
         }
         login(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user)
+                Swal.fire({
+                    icon: "success",
+                    title: "Login Successfully"
+                });
+                navigate(form, { replace: true })
             })
 
     }

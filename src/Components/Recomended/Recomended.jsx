@@ -1,11 +1,13 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import useAxios from "../../Hooks/useAxios";
 
 const Recommended = () => {
+    const axiosSecure = useAxios();
+
     const [populars, setPopulars] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:5000/menu')
+        axiosSecure.get('/menu')
             .then(res => {
                 const popularItems = res.data.filter(item => item.category === 'popular').slice(0, 3)
                 setPopulars(popularItems)

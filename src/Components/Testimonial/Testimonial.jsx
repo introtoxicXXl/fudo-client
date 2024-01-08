@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import { Rating } from '@smastrom/react-rating'
-import '@smastrom/react-rating/style.css'
-import axios from "axios";
+import '@smastrom/react-rating/style.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
+import useAxios from "../../Hooks/useAxios";
 
 const Testimonial = () => {
-    const [reviews, setReviews] = useState([])
+    const [reviews, setReviews] = useState([]);
+    const axiosSecure = useAxios();
 
     useEffect(() => {
-        axios.get('http://localhost:5000/reviews')
+        axiosSecure.get('/reviews')
             .then(res => setReviews(res.data))
     }, [])
 
