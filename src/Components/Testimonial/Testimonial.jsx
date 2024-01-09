@@ -15,7 +15,7 @@ const Testimonial = () => {
     useEffect(() => {
         axiosSecure.get('/reviews')
             .then(res => setReviews(res.data))
-    }, [])
+    }, [axiosSecure])
 
     return (
         <div className="container mx-auto my-10">

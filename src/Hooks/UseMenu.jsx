@@ -11,7 +11,7 @@ const UseMenu = () => {
                 setMenu(res.data);
                 setLoading(false);
             })
-    }, [])
+    }, [axiosSecure])
     return [menu, loading];
 };
 
