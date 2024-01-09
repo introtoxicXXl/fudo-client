@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
+import SocialSignIn from '../Utility/SocialSignIn';
 
 
 const Login = () => {
@@ -80,6 +81,7 @@ const Login = () => {
                             </div>
                         </form>
                         <p className='mt-3 text-[#D1A054] '>New here? <Link className='hover:underline text-blue-500' to='/registration'>Create a New Account</Link></p>
+                        <SocialSignIn/>
                     </div>
                 </div>
             </div>

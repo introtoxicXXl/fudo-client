@@ -8,12 +8,15 @@ import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from './../Hooks/useAuth';
+import SocialSignIn from '../Utility/SocialSignIn';
+import useAxios from '../Hooks/useAxios';
 
 
 const Registration = () => {
     const { signup } = useAuth();
-    const navigate = useNavigate()
-    const location = useLocation()
+    const navigate = useNavigate();
+    const location = useLocation();
+    const axiosSecure = useAxios();
 
     const form = location.state?.from?.pathname || '/';
     const {
@@ -31,16 +34,22 @@ const Registration = () => {
             });
             return;
         }
-        console.log(data)
-        signup(data.email,data.password)
-        .then(result=>{
-            const user = result.user;
-            Swal.fire({
-                icon: "success",
-                title: "Login Successfully"
-            });
-            navigate(form, { replace: true })
-        })
+        signup(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                const userInfo = {
+                    email:user.email,
+                    name:data.name,
+                }
+                axiosSecure.post('/users',userInfo)
+                .then(res=>{
+                    Swal.fire({
+                        icon: "success",
+                        title: "Login Successfully"
+                    });
+                    navigate(form, { replace: true })
+                })
+            })
     }
 
     useEffect(() => {
@@ -109,6 +118,7 @@ const Registration = () => {
                             </div>
                         </form>
                         <p className='mt-3 text-[#D1A054]'>Already have an account? Go to <Link className='text-blue-500 hover:underline' to='/login'>Login</Link></p>
+                        <SocialSignIn />
                     </div>
                 </div>
             </div>

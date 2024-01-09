@@ -17,6 +17,11 @@ import ManageItems from './../Pages/Dashbord/ManageItems/ManageItems';
 import Bookings from './../Pages/Dashbord/Bookings/Bookings';
 import AllUsers from './../Pages/Dashbord/AllUsers/AllUsers';
 import PrivateRoute from "./PrivateRoute";
+import UserHome from "../Pages/Dashbord/UserHome/UserHome";
+import Reservation from "../Pages/Dashbord/Reservation/Reservation";
+import PaymentHistory from "../Pages/Dashbord/PaymentHistory/PaymentHistory";
+import AddReview from "../Pages/Dashbord/Dashboard/AddReview/AddReview";
+import ManageBooking from "../Pages/Dashbord/ManageBooking/ManageBooking";
 
 
 export const router = createBrowserRouter([
@@ -63,7 +68,7 @@ export const router = createBrowserRouter([
         element: <Cart />
       },
       {
-        path: '/dashboard/home',
+        path: '/dashboard/adminHome',
         element: <AdminHome />
       },
       {
@@ -75,12 +80,32 @@ export const router = createBrowserRouter([
         element: <ManageItems />
       },
       {
-        path: '/dashboard/bookings',
+        path: '/dashboard/manageBookings',
+        element: <ManageBooking />
+      },
+      {
+        path: '/dashboard/userBookings',
         element: <Bookings />
       },
       {
         path: '/dashboard/allUsers',
         element: <AllUsers />
+      },
+      {
+        path: '/dashboard/userHome',
+        element: <UserHome />
+      },
+      {
+        path: '/dashboard/reservation',
+        element: <Reservation />
+      },
+      {
+        path: '/dashboard/paymentHistory',
+        element: <PaymentHistory />
+      },
+      {
+        path: '/dashboard/addReview',
+        element: <AddReview />
       },
     ]
   }
