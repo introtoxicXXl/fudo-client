@@ -10,12 +10,12 @@ import useAxios from "../../Hooks/useAxios";
 
 const Testimonial = () => {
     const [reviews, setReviews] = useState([]);
-    const axiosSecure = useAxios();
+    const axiosPublic = useAxios();
 
     useEffect(() => {
-        axiosSecure.get('/reviews')
+        axiosPublic.get('/reviews')
             .then(res => setReviews(res.data))
-    }, [axiosSecure])
+    }, [axiosPublic])
 
     return (
         <div className="container mx-auto my-10">

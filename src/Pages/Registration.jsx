@@ -13,10 +13,10 @@ import useAxios from '../Hooks/useAxios';
 
 
 const Registration = () => {
-    const { signup } = useAuth();
+    const { signup, updateUser } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
-    const axiosSecure = useAxios();
+    const axiosPublic = useAxios();
 
     const form = location.state?.from?.pathname || '/';
     const {
@@ -37,18 +37,21 @@ const Registration = () => {
         signup(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                const userInfo = {
-                    email:user.email,
-                    name:data.name,
-                }
-                axiosSecure.post('/users',userInfo)
-                .then(res=>{
-                    Swal.fire({
-                        icon: "success",
-                        title: "Login Successfully"
-                    });
-                    navigate(form, { replace: true })
-                })
+                updateUser(user)
+                    .then(res => {
+                        const userInfo = {
+                            email: user.email,
+                            name: data.name,
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "Login Successfully"
+                                });
+                                navigate(form, { replace: true })
+                            })
+                    })
             })
     }
 

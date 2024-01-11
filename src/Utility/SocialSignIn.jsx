@@ -4,7 +4,7 @@ import useAxios from "../Hooks/useAxios";
 
 const SocialSignIn = () => {
     const { google } = useAuth();
-    const axiosSecure = useAxios();
+    const axiosPublic = useAxios();
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -18,11 +18,9 @@ const SocialSignIn = () => {
                     name: res?.user.displayName,
                     image: res?.user.photoURL
                 }
-                axiosSecure.post('/users', userInfo)
+                axiosPublic.post('/users', userInfo)
                     .then(res => {
-                        if (res.data.insertedId) {
                             navigate(form, { replace: true })
-                        }
                     })
             })
     }

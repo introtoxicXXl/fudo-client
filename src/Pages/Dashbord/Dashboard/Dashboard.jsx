@@ -5,8 +5,10 @@ import { ImSpoonKnife } from "react-icons/im";
 import { TfiMenuAlt } from "react-icons/tfi";
 
 const Dashboard = () => {
-    const isAdmin = true;
+    // const { user } = useAuth();
     
+    const isAdmin = true;
+
 
     return (
         <div className="flex">

@@ -4,16 +4,16 @@ import useAxios from "../../Hooks/useAxios";
 import FoodCard from "../FoodCard/FoodCard";
 
 const Recommended = () => {
-    const axiosSecure = useAxios();
+    const axiosPublic = useAxios();
 
     const [populars, setPopulars] = useState([]);
     useEffect(() => {
-        axiosSecure.get('/menu')
+        axiosPublic.get('/menu')
             .then(res => {
                 const popularItems = res.data.filter(item => item.category === 'popular').slice(0, 3)
                 setPopulars(popularItems)
             })
-    }, [axiosSecure])
+    }, [axiosPublic])
 
 
     return (

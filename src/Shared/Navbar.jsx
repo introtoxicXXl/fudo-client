@@ -24,7 +24,7 @@ const Navbar = () => {
                         user ?
                             <div className="flex items-end md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                                 <div className="flex items-center">
-                                    <div onClick={()=>navigate('/dashboard/cart')} tabIndex={0} role="button" className="btn btn-ghost btn-circle mr-5">
+                                    <div onClick={() => navigate('/dashboard/cart')} tabIndex={0} role="button" className="btn btn-ghost btn-circle mr-5">
                                         <div className="indicator">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                                             <span className="badge badge-sm indicator-item">{cart.length}</span>
@@ -38,11 +38,13 @@ const Navbar = () => {
                                     <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
                                         <div className="px-4 py-3">
                                             <span className="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                                            <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+                                            <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">{user.email}</span>
                                         </div>
                                         <ul className="py-2" aria-labelledby="user-menu-button">
                                             <li>
-                                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                                                {
+                                                    user.role === "Admin" ? <Link to='/dashboard/adminHome' className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</Link> : <Link to='/dashboard/userHome' className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</Link>
+                                                }
                                             </li>
                                             <li>
                                                 <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>

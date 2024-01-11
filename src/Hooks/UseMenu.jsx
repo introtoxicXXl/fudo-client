@@ -3,15 +3,15 @@ import useAxios from "./useAxios";
 
 const UseMenu = () => {
     const [menu, setMenu] = useState([]);
-    const axiosSecure = useAxios();
+    const axiosPublic = useAxios();
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        axiosSecure.get('/menu')
+        axiosPublic.get('/menu')
             .then(res => {
                 setMenu(res.data);
                 setLoading(false);
             })
-    }, [axiosSecure])
+    }, [axiosPublic])
     return [menu, loading];
 };
 

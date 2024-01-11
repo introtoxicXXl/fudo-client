@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const Cart = () => {
     const [cart,refetch] = useCart();
     const totalPrice = cart.reduce((acc, cart) => acc + cart.price, 0);
-    const axiosSecure = useAxios();
+    const axiosPublic = useAxios();
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",
@@ -19,7 +19,7 @@ const Cart = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/carts/${id}`)
+                axiosPublic.delete(`/carts/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();

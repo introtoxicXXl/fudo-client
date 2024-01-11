@@ -13,7 +13,7 @@ const FoodCard = ({ item }) => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
-    const axiosSecure = useAxios();
+    const axiosPublic = useAxios();
 
 
     const handleAddToCart = item => {
@@ -30,7 +30,7 @@ const FoodCard = ({ item }) => {
                 price,
                 image
             }
-            axiosSecure.post('/carts', cartItem)
+            axiosPublic.post('/carts', cartItem)
                 .then(res => {
                     if (res.data.insertedId) {
                         Swal.fire('item added')
