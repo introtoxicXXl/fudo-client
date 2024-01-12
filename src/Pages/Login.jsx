@@ -19,7 +19,7 @@ const Login = () => {
 
 
     useEffect(() => {
-        loadCaptchaEnginge(6);
+        loadCaptchaEnginge(2);
     }, [])
 
     const handleLogin = e => {
@@ -34,6 +34,7 @@ const Login = () => {
                 title: "Sorry",
                 text: "Write Valid Captcha"
             });
+            return;
         }
         login(email, password)
             .then(result => {

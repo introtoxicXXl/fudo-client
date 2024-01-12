@@ -3,11 +3,12 @@ import './Dashboard.css';
 import { FaBook, FaCalendar, FaCartArrowDown, FaHome, FaUsers, FaWallet } from "react-icons/fa";
 import { ImSpoonKnife } from "react-icons/im";
 import { TfiMenuAlt } from "react-icons/tfi";
+import useAdmin from "../../../Hooks/useAdmin";
 
 const Dashboard = () => {
     // const { user } = useAuth();
     
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
 
     return (
