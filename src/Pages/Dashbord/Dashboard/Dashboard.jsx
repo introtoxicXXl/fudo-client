@@ -6,10 +6,7 @@ import { TfiMenuAlt } from "react-icons/tfi";
 import useAdmin from "../../../Hooks/useAdmin";
 
 const Dashboard = () => {
-    // const { user } = useAuth();
-    
     const [isAdmin] = useAdmin();
-
 
     return (
         <div className="flex">

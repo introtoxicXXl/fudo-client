@@ -20,9 +20,9 @@ import PrivateRoute from "./PrivateRoute";
 import UserHome from "../Pages/Dashbord/UserHome/UserHome";
 import Reservation from "../Pages/Dashbord/Reservation/Reservation";
 import PaymentHistory from "../Pages/Dashbord/PaymentHistory/PaymentHistory";
-import AddReview from "../Pages/Dashbord/Dashboard/AddReview/AddReview";
 import ManageBooking from "../Pages/Dashbord/ManageBooking/ManageBooking";
 import AdminRoute from "./AdminRoute";
+import AddReview from './../Pages/Dashbord/AddReview/AddReview';
 
 
 export const router = createBrowserRouter([
@@ -83,7 +83,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/addReview',
-        element: <AddReview />
+        element: <AddReview/>
       },
       {
         path: '/dashboard/reservation',
