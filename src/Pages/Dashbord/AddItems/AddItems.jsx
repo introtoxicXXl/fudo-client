@@ -10,7 +10,7 @@ const image_Api_Key = import.meta.env.VITE_IMAGE_BB_API_KEY;
 const image_Api = `https://api.imgbb.com/1/upload?key=${image_Api_Key}`;
 
 const AddItems = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const axiosSecure = useAxiosSecure();
 
   const onSubmit = async (data) => {
@@ -30,6 +30,7 @@ const AddItems = () => {
       }
       const result = await axiosSecure.post('/menu', menuInfo)
       if (result.data.insertedId) {
+        reset();
         Swal.fire({
           title: "Congress",
           text: `${data.name} is added`,

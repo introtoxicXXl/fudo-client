@@ -23,6 +23,7 @@ import PaymentHistory from "../Pages/Dashbord/PaymentHistory/PaymentHistory";
 import ManageBooking from "../Pages/Dashbord/ManageBooking/ManageBooking";
 import AdminRoute from "./AdminRoute";
 import AddReview from './../Pages/Dashbord/AddReview/AddReview';
+import UpdateItems from "../Pages/Dashbord/UpdateItems/UpdateItems";
 
 
 export const router = createBrowserRouter([
@@ -110,6 +111,11 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/allUsers',
         element: <AdminRoute><AllUsers /></AdminRoute>
+      },
+      {
+        path: '/dashboard/manageItems/updateItems/:id',
+        element: <AdminRoute><UpdateItems /></AdminRoute>,
+        loader: ({params})=>fetch(`http://localhost:5000/menu/${params.id}`)
       }
     ]
   }
