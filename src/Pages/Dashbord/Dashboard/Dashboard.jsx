@@ -4,9 +4,11 @@ import { FaBook, FaCalendar, FaCartArrowDown, FaHome, FaUsers, FaWallet } from "
 import { ImSpoonKnife } from "react-icons/im";
 import { TfiMenuAlt } from "react-icons/tfi";
 import useAdmin from "../../../Hooks/useAdmin";
+import useCart from "../../../Hooks/useCart";
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
+    const [cart]=useCart();
 
     return (
         <div className="flex">
@@ -42,7 +44,7 @@ const Dashboard = () => {
                                     <NavLink to='/dashboard/paymentHistory' className='flex items-center'> <FaWallet className="mr-2" /> Payment History</NavLink>
                                 </li>
                                 <li className="">
-                                    <NavLink to='/dashboard/cart' className='flex items-center'><FaCartArrowDown className="mr-2" /> My Cart</NavLink>
+                                    <NavLink to='/dashboard/cart' className='flex items-center'><FaCartArrowDown className="mr-2" /> My Cart ({cart.length})</NavLink>
                                 </li>
                                 <li className="">
                                     <NavLink to='/dashboard/addReview' className='flex items-center'><ImSpoonKnife className="mr-2" />Add Review</NavLink>

@@ -37,17 +37,17 @@ const Registration = () => {
         signup(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                updateUser(user)
-                    .then(res => {
+                updateUser(data)
+                    .then(() => {
                         const userInfo = {
                             email: user.email,
                             name: data.name,
                         }
                         axiosPublic.post('/users', userInfo)
-                            .then(res => {
+                            .then(() => {
                                 Swal.fire({
                                     icon: "success",
-                                    title: "Login Successfully"
+                                    title: "Registration Successfully"
                                 });
                                 navigate(form, { replace: true })
                             })

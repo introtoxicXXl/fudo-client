@@ -3,9 +3,10 @@ import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import useCart from "../../../Hooks/useCart";
 import useAxios from "../../../Hooks/useAxios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-    const [cart,refetch] = useCart();
+    const [cart, refetch] = useCart();
     const totalPrice = cart.reduce((acc, cart) => acc + cart.price, 0);
     const axiosPublic = useAxios();
     const handleDelete = id => {
@@ -43,7 +44,7 @@ const Cart = () => {
                 <div className="flex justify-evenly text-4xl font-bold">
                     <h1>Total Order:{cart.length}</h1>
                     <h1>Total Order: ${totalPrice}</h1>
-                    <button className="btn">Pay</button>
+                    <Link to ='/dashboard/payment'><button className="btn">Pay</button></Link>
                 </div>
                 <div>
                     <div className="overflow-x-auto">

@@ -33,7 +33,13 @@ const FoodCard = ({ item }) => {
             axiosPublic.post('/carts', cartItem)
                 .then(res => {
                     if (res.data.insertedId) {
-                        Swal.fire('item added')
+                        Swal.fire({
+                            icon: "success",
+                            title: "Item add to cart",
+                            showConfirmButton: false,
+                            timer: 1000
+                          
+                        })
                         refetch();
                     }
                 })

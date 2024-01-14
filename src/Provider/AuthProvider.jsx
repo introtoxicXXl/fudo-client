@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const updateUser = user => {
+        console.log(user)
         return updateProfile(auth.currentUser, {
             displayName: user.name
         })
@@ -50,12 +51,13 @@ const AuthProvider = ({ children }) => {
                     .then(res => {
                         if (res.data.token) {
                             localStorage.setItem('access-token', res.data.token)
+                            setLoading(false);
                         }
                     })
             } else {
                 localStorage.removeItem('access-token')
+                setLoading(false);
             }
-            setLoading(false);
         })
         return () => {
             unsubscribe();

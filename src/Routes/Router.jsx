@@ -24,6 +24,7 @@ import ManageBooking from "../Pages/Dashbord/ManageBooking/ManageBooking";
 import AdminRoute from "./AdminRoute";
 import AddReview from './../Pages/Dashbord/AddReview/AddReview';
 import UpdateItems from "../Pages/Dashbord/UpdateItems/UpdateItems";
+import Payment from "../Pages/Dashbord/Payment/Payment";
 
 
 export const router = createBrowserRouter([
@@ -89,6 +90,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/reservation',
         element: <Reservation />
+      },
+      {
+        path:'/dashboard/payment',
+        element:<Payment/>
       },
 
       // admin routes 
