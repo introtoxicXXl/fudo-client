@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "https://fudo-server-hwvlmuaol-minhazs-projects.vercel.app"
 })
 const useAxiosSecure = () => {
     const { logOut } = useAuth();

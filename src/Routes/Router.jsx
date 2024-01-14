@@ -120,7 +120,7 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/manageItems/updateItems/:id',
         element: <AdminRoute><UpdateItems /></AdminRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/menu/${params.id}`)
+        loader: ({params})=>fetch(`https://fudo-server-hwvlmuaol-minhazs-projects.vercel.app/menu/${params.id}`)
       }
     ]
   }
