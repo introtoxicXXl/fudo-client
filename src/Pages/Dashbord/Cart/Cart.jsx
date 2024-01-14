@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
     const [cart, refetch] = useCart();
-    const totalPrice = cart.reduce((acc, cart) => acc + cart.price, 0);
+    const totalPrice = cart.reduce((acc, cart) => acc + cart.price, 0).toFixed(2);
     const axiosPublic = useAxios();
     const handleDelete = id => {
         Swal.fire({

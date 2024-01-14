@@ -20,7 +20,7 @@ const FoodCard = ({ item }) => {
         const { name, image, _id, price } = item;
         if (!user) {
             navigate('/login', { state: { from: location } })
-            // return;
+            return;
         }
         else {
             const cartItem = {
